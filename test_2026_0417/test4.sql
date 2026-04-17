@@ -1,0 +1,22 @@
+--ユーザー
+CREATE TABLE users(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  email VARCHAR(50) NOT NULL UNIQUE,
+  phone VARCHAR(20)
+);
+
+--注文
+CREATE TABLE orders(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  order_date DATETIME,
+  FOREIGN KEY(id) REFERENCES users(id)
+);
+
+--商品
+CREATE TABLE products(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  price INT NOT NULL
+);
